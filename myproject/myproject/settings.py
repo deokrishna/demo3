@@ -32,14 +32,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']  # Add your host names here
 
-# Application definition
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Ensure you have the static files directories set up
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.admin',
@@ -127,8 +120,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-
 STATIC_URL = 'static/'
+
+
+
+# Define the directories where static files will be collected from
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'accounts/static')]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
